@@ -31,7 +31,7 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View v) {
                 try {
                     mTestBinder.setName("xw");
-                    Log.e("xw", "MainActivity---setName---xw");
+                    Log.e("xw1", "MainActivity---setName---xw");
                 } catch (RemoteException e) {
                     e.printStackTrace();
                 }
