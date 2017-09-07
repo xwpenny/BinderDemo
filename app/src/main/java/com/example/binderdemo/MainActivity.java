@@ -7,6 +7,7 @@ import android.content.ServiceConnection;
 import android.os.AsyncTask;
 import android.os.IBinder;
 import android.os.RemoteException;
+import android.os.SystemClock;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
@@ -31,7 +32,7 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View v) {
                 try {
                     mTestBinder.setName("xw");
-                    Log.e("xw1111", "MainActivity---setName---xw");
+                    Log.e("xw", "MainActivity---setName---xw");
                 } catch (RemoteException e) {
                     e.printStackTrace();
                 }
@@ -53,7 +54,7 @@ public class MainActivity extends AppCompatActivity {
         /** 获取服务对象时的操作 */
         public void onServiceConnected(ComponentName name, IBinder service) {
             // TODO Auto-generated method stub
-            Log.e("MainActivity", service.getClass().getName());
+            Log.e("xw", "onServiceConnected");
             mTestBinder = IBinderTest.Stub.asInterface(service);
         }
 
@@ -64,4 +65,15 @@ public class MainActivity extends AppCompatActivity {
         }
     };
 
+    @Override
+    protected void onStart() {
+        Log.e("xw", "onStart---");
+        super.onStart();
+    }
+
+    @Override
+    protected void onResume() {
+        Log.e("xw", "onResume---");
+        super.onResume();
+    }
 }
